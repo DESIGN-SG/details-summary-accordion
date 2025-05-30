@@ -5,10 +5,10 @@ $sub-02: lighten($main, 63%);
 
 @mixin responsive($breakpoint) {
   @if $breakpoint == "sp" {
-    @media (max-width: 768px) { @content; } 
+    @media screen and (max-width: 768px) { @content; } 
   }
   @else if $breakpoint == "pc" {
-    @media (min-width: 769px) { @content; }
+    @media screen and (min-width: 769px) { @content; }
   }
 }
 
