@@ -1,0 +1,111 @@
+/* ---変数 mixin extend --- */
+$main: #0c889e;
+$sub: lighten($main, 55%);
+$sub-02: lighten($main, 63%);
+
+$pc: 769px;
+$sp: 768px;
+@mixin pc {
+  @media screen and (min-width: ($pc)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media screen and (max-width: ($sp)) {
+    @content;
+  }
+}
+
+%grid-center {
+  display: grid;
+  place-items: center;
+}
+/* ------------------------- */
+
+body {
+  max-width: 800px;
+  margin-inline: auto;
+  margin-top: 40px;
+  line-height:1;
+}
+
+.accordion {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid $main;
+  &:first-of-type {
+    border-top-color: $main;
+  }
+  cursor: pointer;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  &::-webkit-details-marker {
+    /* Safariのみこの記述でデフォルトの三角形削除*/
+    display: none;
+  }
+  .accordion-head {
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 67px auto 72px;
+    padding-block: 16px;
+    &:is(.accordion[open] > *) {
+      background-color: $sub;
+    }
+  }
+  .area-left,.area-right {
+    @extend %grid-center;
+    color: #f3c11d;
+  }
+  .area-left__icon {
+    font-size: 27px;
+  }
+  .area-right__icon--plus {
+    font-size: 24px;
+    &:is(.accordion[open] *) {
+      display: none;
+    }
+  }
+  .area-right__icon--minus {
+    display: none;
+    font-size: 22px;
+      &:is(.accordion[open] *) {
+        display: block;
+      }
+  }
+  .area-center {
+    color: $main;
+    position: relative;
+    padding-right: 40px;
+    &::after {
+      content: '';
+      width: 1px;
+      height: 32px;
+      background-color: $main;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+  }
+  .title {
+    display: block;
+    margin-block: 0;
+    font-size: 24px;
+    font-weight: bold;
+    @include sp {
+      font-size: 20px;
+    }
+  }
+  .subtitle {
+    font-size: 16px;
+    margin-block: 0;
+    margin-top: 1em;
+    @include sp {
+      font-size: 14px;
+    }
+  }
+  .contents {
+    background-color: $sub-02;
+    height: 200px;
+    padding: 40px;
+  }
+}
