@@ -13,5 +13,5 @@ HTML/CSS/JavaScriptでアコーディオンを作成しました。
 ](https://codepen.io/DESIGN-SG/pen/qEEwpEG)
 
 ## 更新履歴
-2025.05.27 リポジトリ作成
+2025.05.27 リポジトリ作成  
 2025.05.30 完了
