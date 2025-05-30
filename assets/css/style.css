@@ -1,0 +1,100 @@
+@charset "UTF-8";
+/* ---変数 mixin extend --- */
+.accordion .area-left, .accordion .area-right {
+  display: grid;
+  place-items: center;
+}
+
+/* ------------------------- */
+body {
+  max-width: 800px;
+  margin-inline: auto;
+  margin-top: 40px;
+  line-height: 1;
+}
+
+.accordion {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid #0c889e;
+  cursor: pointer;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.accordion:first-of-type {
+  border-top-color: #0c889e;
+}
+.accordion::-webkit-details-marker {
+  /* Safariのみこの記述でデフォルトの三角形削除*/
+  display: none;
+}
+.accordion .accordion-head {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 67px auto 72px;
+  padding-block: 16px;
+}
+.accordion .accordion-head:is(.accordion[open] > *) {
+  background-color: rgb(199.7, 243.1, 250.8);
+}
+.accordion .area-left, .accordion .area-right {
+  color: #f3c11d;
+}
+.accordion .area-left__icon {
+  font-size: 27px;
+}
+.accordion .area-right__icon--plus {
+  font-size: 24px;
+}
+.accordion .area-right__icon--plus:is(.accordion[open] *) {
+  display: none;
+}
+.accordion .area-right__icon--minus {
+  display: none;
+  font-size: 22px;
+}
+.accordion .area-right__icon--minus:is(.accordion[open] *) {
+  display: block;
+}
+.accordion .area-center {
+  color: #0c889e;
+  position: relative;
+  padding-right: 40px;
+}
+.accordion .area-center::after {
+  content: "";
+  width: 1px;
+  height: 32px;
+  background-color: #0c889e;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+.accordion .title {
+  display: block;
+  margin-block: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .accordion .title {
+    font-size: 20px;
+  }
+}
+.accordion .subtitle {
+  font-size: 16px;
+  margin-block: 0;
+  margin-top: 1em;
+}
+@media screen and (max-width: 768px) {
+  .accordion .subtitle {
+    font-size: 14px;
+  }
+}
+.accordion .contents {
+  background-color: rgb(237.62, 251.26, 253.68);
+  height: 200px;
+  padding: 40px;
+}
+
+/*# sourceMappingURL=style.css.map */
